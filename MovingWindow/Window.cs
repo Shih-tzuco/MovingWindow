@@ -6,7 +6,7 @@ namespace MovingWindow
 {
     public partial class Window : Form
     { 
-        private string button_Direction;
+        private string buttonDirection;
         private int width = Screen.PrimaryScreen.Bounds.Width;
         private int height = Screen.PrimaryScreen.Bounds.Height;
         private int step = 6;
@@ -16,9 +16,14 @@ namespace MovingWindow
             InitializeComponent();
         }
 
-        private void Press_Down(object sender, EventArgs e)
+        private void KeyPressed(object sender, KeyEventArgs e)
         {
-            if (button_Direction == "Down")
+            KeysCode(e.KeyCode);
+        }
+
+        private void Window_PressDown(object sender, EventArgs e)
+        {
+            if (buttonDirection == "Down")
             {
                 if (Location.Y + Height != height)
                 {
@@ -33,10 +38,10 @@ namespace MovingWindow
                 }
                 else
                 {
-                    Key_Code(Keys.Up);
+                    KeysCode(Keys.Up);
                 }
             }
-            else if (button_Direction == "Up")
+            else if (buttonDirection == "Up")
             {
                 if (Location.Y != 0)
                 {
@@ -51,10 +56,10 @@ namespace MovingWindow
                 }
                 else
                 {
-                    Key_Code(Keys.Down);
+                    KeysCode(Keys.Down);
                 }
             }
-            else if (button_Direction == "Right")
+            else if (buttonDirection == "Right")
             {
                 if (Location.X + Width != width)
                 {
@@ -69,10 +74,10 @@ namespace MovingWindow
                 }
                 else
                 {
-                    Key_Code(Keys.Left);
+                    KeysCode(Keys.Left);
                 }
             }
-            else if (button_Direction == "Left")
+            else if (buttonDirection == "Left")
             {
                 if (Location.X != 0)
                 {
@@ -87,38 +92,33 @@ namespace MovingWindow
                 }
                 else
                 {
-                    Key_Code(Keys.Right);
+                    KeysCode(Keys.Right);
                 }
             }
         }
 
-        private void Key_Code(Keys key)
+        private void KeysCode(Keys key)
         {
             timer.Start();
             switch (key)
             {
                 case Keys.Down:
-                    button_Direction = "Down";
+                    buttonDirection = "Down";
                     break;
                 case Keys.Up:
-                    button_Direction = "Up";
+                    buttonDirection = "Up";
                     break;
                 case Keys.Right:
-                    button_Direction = "Right";
+                    buttonDirection = "Right";
                     break;
                 case Keys.Left:
-                    button_Direction = "Left";
+                    buttonDirection = "Left";
                     break;
                 case Keys.Enter:
                     timer.Stop();
                     CenterToScreen();
                     break;
             }
-        }
-
-        private void Key_Pressed(object sender, KeyEventArgs e)
-        {
-            Key_Code(e.KeyCode);
         }
     }
 }

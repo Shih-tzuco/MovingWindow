@@ -34,7 +34,7 @@
             // 
             // timer
             // 
-            this.timer.Tick += new System.EventHandler(this.Press_Down);
+            this.timer.Tick += new System.EventHandler(this.Window_PressDown);
             // 
             // Window
             // 
@@ -47,7 +47,7 @@
             this.Name = "Window";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Moving Window";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Pressed);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyPressed);
             this.ResumeLayout(false);
 
         }
@@ -57,4 +57,3 @@
         private System.Windows.Forms.Timer timer;
     }
 }
-
