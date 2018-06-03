@@ -16,30 +16,6 @@ namespace MovingWindow
             InitializeComponent();
         }
 
-        private void Key_Code(Keys key)
-        {
-            timer.Start();
-            switch (key)
-            {
-                case Keys.Down:
-                    button_Direction = "Down";
-                    break;
-                case Keys.Up:
-                    button_Direction = "Up";
-                    break;
-                case Keys.Right:
-                    button_Direction = "Right";
-                    break;
-                case Keys.Left:
-                    button_Direction = "Left";
-                    break;
-                case Keys.Enter:
-                    timer.Stop();
-                    CenterToScreen();
-                    break;
-            }
-        }
-
         private void Press_Down(object sender, EventArgs e)
         {
             if (button_Direction == "Down")
@@ -115,7 +91,31 @@ namespace MovingWindow
                 }
             }
         }
- 
+
+        private void Key_Code(Keys key)
+        {
+            timer.Start();
+            switch (key)
+            {
+                case Keys.Down:
+                    button_Direction = "Down";
+                    break;
+                case Keys.Up:
+                    button_Direction = "Up";
+                    break;
+                case Keys.Right:
+                    button_Direction = "Right";
+                    break;
+                case Keys.Left:
+                    button_Direction = "Left";
+                    break;
+                case Keys.Enter:
+                    timer.Stop();
+                    CenterToScreen();
+                    break;
+            }
+        }
+
         private void Key_Pressed(object sender, KeyEventArgs e)
         {
             Key_Code(e.KeyCode);
