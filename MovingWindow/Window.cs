@@ -9,7 +9,7 @@ namespace MovingWindow
         private string buttonDirection;
         private int width = Screen.PrimaryScreen.Bounds.Width;
         private int height = Screen.PrimaryScreen.Bounds.Height;
-        private int step = 6;
+        private const int step = 6;
 
         public Window()
         {
