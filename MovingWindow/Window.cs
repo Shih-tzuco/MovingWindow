@@ -7,9 +7,9 @@ namespace MovingWindow
     public partial class Window : Form
     { 
         private string button_Direction;
-        int width = Screen.PrimaryScreen.Bounds.Width;
-        int height = Screen.PrimaryScreen.Bounds.Height;
-        int step = 6;
+        private int width = Screen.PrimaryScreen.Bounds.Width;
+        private int height = Screen.PrimaryScreen.Bounds.Height;
+        private int step = 6;
 
         public Window()
         {
