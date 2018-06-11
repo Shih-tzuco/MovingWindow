@@ -5,11 +5,11 @@ using System.Windows.Forms;
 namespace MovingWindow
 {
     public partial class Window : Form
-    { 
+    {
+        private const int step = 6;
         private string buttonDirection;
         private int width = Screen.PrimaryScreen.Bounds.Width;
         private int height = Screen.PrimaryScreen.Bounds.Height;
-        private const int step = 6;
 
         public Window()
         {
@@ -19,6 +19,30 @@ namespace MovingWindow
         private void KeyPressed(object sender, KeyEventArgs e)
         {
             KeysCode(e.KeyCode);
+        }
+
+        private void KeysCode(Keys key)
+        {
+            timer.Start();
+            switch (key)
+            {
+                case Keys.Down:
+                    buttonDirection = "Down";
+                    break;
+                case Keys.Up:
+                    buttonDirection = "Up";
+                    break;
+                case Keys.Right:
+                    buttonDirection = "Right";
+                    break;
+                case Keys.Left:
+                    buttonDirection = "Left";
+                    break;
+                case Keys.Enter:
+                    timer.Stop();
+                    CenterToScreen();
+                    break;
+            }
         }
 
         private void Window_PressDown(object sender, EventArgs e)
@@ -94,30 +118,6 @@ namespace MovingWindow
                 {
                     KeysCode(Keys.Right);
                 }
-            }
-        }
-
-        private void KeysCode(Keys key)
-        {
-            timer.Start();
-            switch (key)
-            {
-                case Keys.Down:
-                    buttonDirection = "Down";
-                    break;
-                case Keys.Up:
-                    buttonDirection = "Up";
-                    break;
-                case Keys.Right:
-                    buttonDirection = "Right";
-                    break;
-                case Keys.Left:
-                    buttonDirection = "Left";
-                    break;
-                case Keys.Enter:
-                    timer.Stop();
-                    CenterToScreen();
-                    break;
             }
         }
     }
